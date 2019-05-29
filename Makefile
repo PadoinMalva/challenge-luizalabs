@@ -10,9 +10,13 @@ venv/bin/activate:
 
 run-venv:
 	venv/bin/activate
-	. venv/bin/activate ;
+	source venv/bin/activate ;
+
+run-migrates:
+	python3 manage.py makemigrations ; \
+	python3 manage.py migrate ; \
+	python3 manage.py createsuperuser --email root@root.com --username root ; \
 
 run-dev:
-	python3 manage.py createsuperuser --email root@root.com --username root ; \
-	python3 manage.py makemigrations employees ; \
-	python3 manage.py migrate employees ; \
+	python3 manage.py test
+	python3 manage.py runserver

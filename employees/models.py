@@ -9,4 +9,10 @@ class Employees(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=255, unique=True)
     departament = models.TextField()
-    createdAt = models.DateField()
+    createdAt = models.DateField(null=True)
+
+    
+    # def list_employees(self):
+    #     x= Employees.objects.all().order_by('-createdAt')
+    #     print('>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<', x)
+    #     return []
