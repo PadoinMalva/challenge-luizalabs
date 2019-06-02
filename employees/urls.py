@@ -11,7 +11,7 @@ router.register(r'groups', GroupViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('employ/addemployee', EmployeeCreateViewSet.as_view(), name="add-employ" ),
-    path('employees/', EmployeeListViewSet.as_view(), name="employees-all"),
-    path('employ/removeemployee', EmployeeRemoveViewSet.as_view(), name="remove-employ" )
+    path('employee/addemployee', EmployeeCreateViewSet.as_view(), name="add-employee" ),
+    path('employee/listemployees', EmployeeListViewSet.as_view(), name="employees-all"),
+    path('employee/removeemployee', EmployeeRemoveViewSet.as_view(), name="remove-employee" )
 ]

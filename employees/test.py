@@ -40,7 +40,7 @@ class EmployeesTest(BaseViewTest):
         }
         # hit the API endpoint
         response = self.client.post(
-            reverse("add-employ"), data, format='json'   
+            reverse("add-employee"), data, format='json'   
         )
         # fetch the data from db
         expected = Employees.objects.filter(email=data['email'])
@@ -66,7 +66,7 @@ class EmployeesTest(BaseViewTest):
         email= 'email=dpmalva@gmail.com'
         
         response = self.client.delete(
-            reverse("remove-employ"), QUERY_STRING=email   
+            reverse("remove-employee"), QUERY_STRING=email   
         )
         # fetch the data from db
 

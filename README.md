@@ -4,17 +4,42 @@ Challenge Luiza Labs
 ## Run - Dev
 
 ```bash
-# Create and started venv of project
+# Create venv of project
 $ make run-venv
 ```
 
 ```bash
-# Run first time and create django user admin
-$ make run-dev
+# Started venv of project
+$ . venv/bin/activate
 ```
 
-## Test Api
 ```bash
-curl -H 'Accept: application/json; indent=4' -u root:root http://127.0.0.1:8000/users/
+# Run first time to do the migrations and create a superuser on Django
+$ make run-migrates
 ```
+
+```bash
+# Run tests and start the API
+$ make run-dev
+```
+## API Endpoints
+URL: http://localhost:8000
+
+/admin
+
+
+
+
+## Test Api Exemples
+ADD employee (POST)
+```bash
+curl -d '{"name":"Daniel Padoin", "email":"teste@teste.com", "department":"Teste" }' -H "Content-Type: application/json" -X POST http://localhost:8000/employee/addemployee
+```
+
+List employee (GET)
+```bash
+curl -H "Content-Type: application/javascript" http://localhost:8000/employee/listemployees
+```
+
+
 
