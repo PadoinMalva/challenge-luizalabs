@@ -28,11 +28,14 @@ URL: http://localhost:8000
 /admin
 - To access Django admin
 
+
 /employee/addemployee
 - Add employee
 
+
 /employee/listemployees
 - List all employees
+
 
 /employee/removeemployee
 - Remove a specific employee
