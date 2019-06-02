@@ -25,20 +25,20 @@ $ make run-dev
 ## API Endpoints
 URL: http://localhost:8000
 
-/admin
 - To access Django admin
+/admin
 
 
-/employee/addemployee
 - Add employee
+/employee/addemployee
 
 
-/employee/listemployees
 - List all employees
+/employee/listemployees
 
 
-/employee/removeemployee
 - Remove a specific employee
+/employee/removeemployee
 
 
 
