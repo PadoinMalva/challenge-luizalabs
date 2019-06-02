@@ -6,5 +6,5 @@ from .models import Employees
 @admin.register(Employees)
 class ListEmployee(admin.ModelAdmin):
     list_display = ('name', 'email','department')
-    list_filter = ('name',)
-    search_fields = ('name',)
+    list_filter = ('department',)
+    search_fields = ('name', 'email', 'department')

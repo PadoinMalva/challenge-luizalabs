@@ -15,9 +15,9 @@ class BaseViewTest(APITestCase):
     @staticmethod
     def create_employer(name="", email="", department=""):
         if name != "" and email != "" and department != "":
-            createdAt = datetime.datetime.now()
+            # createdAt = datetime.datetime.now()
             Employees.objects.create(
-                name=name, email=email, department=department, createdAt=createdAt)
+                name=name, email=email, department=department)
 
     def setUp(self):
         # add test data

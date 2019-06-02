@@ -9,4 +9,4 @@ class Employees(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=255, unique=True)
     department = models.TextField()
-    createdAt = models.DateField(null=True)
+    # createdAt = models.DateField(null=True)

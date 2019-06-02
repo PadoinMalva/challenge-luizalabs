@@ -29,7 +29,7 @@ class EmployeeCreateViewSet(generics.CreateAPIView):
 
 
 class EmployeeListViewSet(generics.ListAPIView):
-    queryset = Employees.objects.all().order_by('-createdAt')
+    queryset = Employees.objects.all()
     serializer_class = EmployeeSerializer
 
 

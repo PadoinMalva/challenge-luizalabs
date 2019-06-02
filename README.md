@@ -26,20 +26,35 @@ $ make run-dev
 URL: http://localhost:8000
 
 /admin
+- To access Django admin
 
+/employee/addemployee
+- Add employee
+
+/employee/listemployees
+- List all employees
+
+/employee/removeemployee
+- Remove a specific employee
 
 
 
 ## Test Api Exemples
-ADD employee (POST)
 ```bash
+# ADD employee (POST)
 curl -d '{"name":"Daniel Padoin", "email":"teste@teste.com", "department":"Teste" }' -H "Content-Type: application/json" -X POST http://localhost:8000/employee/addemployee
 ```
 
-List employee (GET)
 ```bash
+# List employee (GET)
 curl -H "Content-Type: application/javascript" http://localhost:8000/employee/listemployees
 ```
+
+```bash
+# Remove employee (GET)
+curl -X DELETE 'http://localhost:8000/employee/removeemployee?email=teste@teste.com'
+```
+
 
 
 
