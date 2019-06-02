@@ -25,20 +25,20 @@ $ make run-dev
 ## API Endpoints
 URL: http://localhost:8000
 
-- To access Django admin
-/admin
+- To access Django admin:
+ /admin
 
 
-- Add employee
-/employee/addemployee
+- Add employee:
+ /employee/addemployee
 
 
-- List all employees
-/employee/listemployees
+- List all employees:
+ /employee/listemployees
 
 
-- Remove a specific employee
-/employee/removeemployee
+- Remove a specific employee:
+ /employee/removeemployee
 
 
 
@@ -54,7 +54,7 @@ curl -H "Content-Type: application/javascript" http://localhost:8000/employee/li
 ```
 
 ```bash
-# Remove employee (GET)
+# Remove employee (DELETE)
 curl -X DELETE 'http://localhost:8000/employee/removeemployee?email=teste@teste.com'
 ```
 
