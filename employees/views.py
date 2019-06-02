@@ -25,18 +25,15 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 class EmployeeCreateViewSet(generics.CreateAPIView):
-    print('Entrei No create')
     serializer_class = EmployeeSerializer
 
 
 class EmployeeListViewSet(generics.ListAPIView):
-    print('Entrei no LIST')
     queryset = Employees.objects.all().order_by('-createdAt')
     serializer_class = EmployeeSerializer
 
 
 class EmployeeRemoveViewSet(generics.DestroyAPIView):
-    print('Entrei no Remove')
     lookup_field = 'email'
     serializer_class = EmployeeSerializer
 

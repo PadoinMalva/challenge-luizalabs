@@ -5,6 +5,7 @@ from .models import Employees
 from .serializers import EmployeeSerializer
 import datetime
 
+
 # tests for views
 
 
@@ -12,11 +13,11 @@ class BaseViewTest(APITestCase):
     client = APIClient()
 
     @staticmethod
-    def create_employer(name="", email="", departament=""):
-        if name != "" and email != "" and departament != "":
+    def create_employer(name="", email="", department=""):
+        if name != "" and email != "" and department != "":
             createdAt = datetime.datetime.now()
             Employees.objects.create(
-                name=name, email=email, departament=departament, createdAt=createdAt)
+                name=name, email=email, department=department, createdAt=createdAt)
 
     def setUp(self):
         # add test data
@@ -26,8 +27,28 @@ class BaseViewTest(APITestCase):
             "Padoin Malva", "padoca@hotmail.com", "Scrum Master")
 
 
-class GetAllEmployeesTest(BaseViewTest):
+   
+        
 
+class EmployeesTest(BaseViewTest):
+
+    def test_add_new_employee(self):
+        data = {
+            "name":"Arnaldo Pereira",
+            "email":"arnaldao@luizalabs.com.br",
+            "department":"Architecture"
+        }
+        # hit the API endpoint
+        response = self.client.post(
+            reverse("add-employ"), data, format='json'   
+        )
+        # fetch the data from db
+        expected = Employees.objects.filter(email=data['email'])
+        serialized = EmployeeSerializer(expected, many=True)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(data, dict(serialized.data[0]))
+
+       
     def test_get_all_employees(self):
         # hit the API endpoint
         response = self.client.get(
@@ -38,3 +59,16 @@ class GetAllEmployeesTest(BaseViewTest):
         serialized = EmployeeSerializer(expected, many=True)
         self.assertEqual(response.data['results'], serialized.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    
+    def test_destroy_employee(self):
+        # hit the API endpoint
+        email= 'email=dpmalva@gmail.com'
+        
+        response = self.client.delete(
+            reverse("remove-employ"), QUERY_STRING=email   
+        )
+        # fetch the data from db
+
+        expected = Employees.objects.filter(email='dpmalva@gmail.com')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
